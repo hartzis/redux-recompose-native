@@ -8,3 +8,12 @@ export function increment() {
 export function decrement() {
   return {type: DECREMENT}
 }
+
+export function incrementIfOdd() {
+  return (dispatch, getState) => {
+    const {counter} = getState()
+    if (counter % 2 === 1) {
+      dispatch(increment())
+    }
+  }
+}

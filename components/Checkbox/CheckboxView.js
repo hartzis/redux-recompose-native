@@ -1,4 +1,4 @@
-import React, {PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 function Checkbox({value, toggle})  {
   return (
@@ -10,7 +10,7 @@ function Checkbox({value, toggle})  {
 }
 
 Checkbox.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.bool.isRequired,
   toggle: PropTypes.func.isRequired,
 }
 
