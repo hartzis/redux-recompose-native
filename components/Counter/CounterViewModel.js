@@ -1,40 +1,23 @@
 import {PropTypes} from 'react'
-import store from '../../store/store'
+import {compose, mapStateToProps, setStateTypes} from 'compose-props'
 
-export default function CounterViewModel(state = store.getState()) {
+function mapState(state, props) {
   const {counter, checkbox} = state
   const value = counter.get('counter', 0);
   const avatarUrl = counter.getIn(['user', 'avatar_url'], '')
-  return assertCounterView({
+  return {
     value,
     isUpButtonDisabled: checkbox || value > 5,
     loaded: !!avatarUrl,
     isLoading: counter.get('isLoading', false),
     avatarUrl,
-  })
-}
-
-CounterViewModel.propTypes = {
-  value: PropTypes.number.isRequired,
-  isUpButtonDisabled: PropTypes.bool.isRequired,
-  loaded: PropTypes.bool.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  avatarUrl: PropTypes.string.isRequired,
-}
-
-function assertCounterView(state) {
-  // if on dev
-  if (true) {
-    Object.keys(CounterViewModel.propTypes).forEach((key) => {
-      try {
-        const error = CounterViewModel.propTypes[key](state, key, 'CounterViewModel');
-        if (error) {
-          throw error;
-        }
-      } catch (e) {
-        console.error(e)
-      }
-    })
   }
-  return state
 }
+
+export default compose(
+  setStateTypes({
+    counter: PropTypes.object.isRequired,
+    checkbox: PropTypes.bool.isRequired,
+  }),
+  mapStateToProps(mapState)
+)
