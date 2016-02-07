@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import View from './CheckboxView'
+import View from './CheckboxViewIos'
 import {toggle} from './CheckboxActions'
 import ViewModel from './CheckboxViewModel'
 

@@ -5,16 +5,18 @@ import React, {
   Text,
   View
 } from 'react-native'
-import Counter from '../Counter/CounterApp'
-import Checkbox from '../Checkbox/CheckboxApp'
+import Checkbox from '../Checkbox/CheckboxAppIos'
+import Counter from '../Counter/CounterAppIos'
 
-function App()  {
-  return (
-    <View>
-      <Counter />
-      <Checkbox />
-    </View>
-  )
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Counter />
+        <Checkbox />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -23,16 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 

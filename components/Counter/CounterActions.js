@@ -22,7 +22,7 @@ export function setUser(user) {
 export function incrementIfOdd() {
   return (dispatch, getState) => {
     const {counter} = getState()
-    if (counter % 2 === 1) {
+    if (counter.get('counter', 0) % 2 === 1) {
       dispatch(increment())
     }
   }

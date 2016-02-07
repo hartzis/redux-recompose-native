@@ -4,7 +4,7 @@
   "description": "Redux counter example",
   "scripts": {
     "start": "node server.js",
-    "start:ios": "node node_modules/react-native/local-cli/cli.js start",
+    "start:ios": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-core/register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
   },
